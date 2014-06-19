@@ -20,10 +20,30 @@ namespace EmptyProject.Tests
             AssertAbility(player.Charisma);
         }
 
+        [TestMethod]
+        public void AbilitiesDefaultToTen()
+        {
+            // Arrange
+            var ability = new Ability();
+
+            // Assert
+            Assert.AreEqual(10, ability.Score);
+        }
+
+        [TestMethod]
+        public void AbilitiesHaveAMinimumValueOfOne()
+        {
+            // Arrange
+            var ability = new Ability(0);
+
+            // Assert
+            Assert.AreEqual(1, ability.Score);
+        }
+
         private static void AssertAbility(object ability)
         {
             Assert.IsNotNull(ability);
-            Assert.IsInstanceOfType(ability, typeof (Ability));
-        }        
-    }    
+            Assert.IsInstanceOfType(ability, typeof(Ability));
+        }
+    }
 }

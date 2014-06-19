@@ -88,6 +88,16 @@
 
     public class Ability
     {
+        public int Score { get; private set; }
 
+        public Ability()
+        {
+            Score = 10;
+        }
+
+        public Ability(int score)
+        {
+            Score = 1;
+        }
     }
 }
