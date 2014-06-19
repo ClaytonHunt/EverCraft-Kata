@@ -10,6 +10,8 @@
 
         private int CriticalRoll { get; set; }
 
+        public object Strength { get; set; }
+
         public Character()
         {
             SetupVitals();
@@ -43,6 +45,7 @@
 
             IsAlive = true;
             HitPoints = 5;
+            Strength = new object();
         }
 
         private static bool AttackHits(int attackRoll, Character enemy)

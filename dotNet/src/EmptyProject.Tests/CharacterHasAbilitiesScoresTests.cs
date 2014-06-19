@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EmptyProject.Tests
 {
@@ -7,8 +6,15 @@ namespace EmptyProject.Tests
     public class CharacterHasAbilitiesScoresTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CharacterHasStrengthAbility()
         {
-        }
+            // Arrange
+            var player = new Character();
+
+            // Act
+
+            // Assert            
+            Assert.IsNotNull(player.Strength);
+        }        
     }
 }
