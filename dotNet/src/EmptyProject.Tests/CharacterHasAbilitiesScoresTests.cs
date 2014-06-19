@@ -27,6 +27,18 @@ namespace EmptyProject.Tests
 
             // Assert            
             Assert.IsInstanceOfType(player.Strength, typeof(Ability));
-        }   
+        }
+
+        [TestMethod]
+        public void CharacterHasDexterityAbility()
+        {
+            // Arrange
+            var player = new Character();
+
+            // Act
+
+            // Assert            
+            Assert.IsNotNull(player.Dexterity);
+        }
     }    
 }

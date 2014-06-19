@@ -11,6 +11,7 @@
         private int CriticalRoll { get; set; }
 
         public Ability Strength { get; private set; }
+        public object Dexterity { get; private set; }
 
         public Character()
         {
@@ -46,6 +47,7 @@
             IsAlive = true;
             HitPoints = 5;
             Strength = new Ability();
+            Dexterity = new object();
         }
 
         private static bool AttackHits(int attackRoll, Character enemy)
