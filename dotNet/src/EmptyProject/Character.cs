@@ -88,6 +88,8 @@
 
     public class Ability
     {
+        private const int LowerLimit = 1;
+
         public int Score { get; private set; }
 
         public Ability()
@@ -97,7 +99,12 @@
 
         public Ability(int score)
         {
-            Score = 1;
+            Score = ScoreOrLowerLimit(score);
+        }
+
+        private static int ScoreOrLowerLimit(int score)
+        {
+            return score < LowerLimit ? LowerLimit : score;
         }
     }
 }

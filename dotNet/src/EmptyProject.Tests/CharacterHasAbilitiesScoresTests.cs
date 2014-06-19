@@ -31,6 +31,16 @@ namespace EmptyProject.Tests
         }
 
         [TestMethod]
+        public void AbilitiesHaveAValueThatIsSet()
+        {
+            // Arrange
+            var ability = new Ability(5);
+
+            // Assert
+            Assert.AreEqual(5, ability.Score);
+        }
+
+        [TestMethod]
         public void AbilitiesHaveAMinimumValueOfOne()
         {
             // Arrange
