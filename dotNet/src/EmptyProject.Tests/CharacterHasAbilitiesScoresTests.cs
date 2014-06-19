@@ -6,51 +6,20 @@ namespace EmptyProject.Tests
     public class CharacterHasAbilitiesScoresTests
     {
         [TestMethod]
-        public void CharacterHasStrengthAbility()
+        public void CharacterHasBaseAbilities()
         {
             // Arrange
             var player = new Character();
 
-            // Act
-
             // Assert            
-            Assert.IsNotNull(player.Strength);
+            AssertAbility(player.Strength);
+            AssertAbility(player.Dexterity);
         }
 
-        [TestMethod]
-        public void CharacterStrengthIsAnAbility()
+        private static void AssertAbility(object ability)
         {
-            // Arrange
-            var player = new Character();
-
-            // Act
-
-            // Assert            
-            Assert.IsInstanceOfType(player.Strength, typeof(Ability));
-        }
-
-        [TestMethod]
-        public void CharacterHasDexterityAbility()
-        {
-            // Arrange
-            var player = new Character();
-
-            // Act
-
-            // Assert            
-            Assert.IsNotNull(player.Dexterity);
-        }
-
-        [TestMethod]
-        public void CharacterDexterityIsAnAbility()
-        {
-            // Arrange
-            var player = new Character();
-
-            // Act
-
-            // Assert            
-            Assert.IsInstanceOfType(player.Dexterity, typeof(Ability));
-        }
+            Assert.IsNotNull(ability);
+            Assert.IsInstanceOfType(ability, typeof (Ability));
+        }        
     }    
 }
