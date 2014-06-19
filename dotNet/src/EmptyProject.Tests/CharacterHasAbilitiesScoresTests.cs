@@ -40,5 +40,17 @@ namespace EmptyProject.Tests
             // Assert            
             Assert.IsNotNull(player.Dexterity);
         }
+
+        [TestMethod]
+        public void CharacterDexterityIsAnAbility()
+        {
+            // Arrange
+            var player = new Character();
+
+            // Act
+
+            // Assert            
+            Assert.IsInstanceOfType(player.Dexterity, typeof(Ability));
+        }
     }    
 }

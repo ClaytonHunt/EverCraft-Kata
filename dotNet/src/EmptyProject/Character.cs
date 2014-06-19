@@ -11,11 +11,12 @@
         private int CriticalRoll { get; set; }
 
         public Ability Strength { get; private set; }
-        public object Dexterity { get; private set; }
+        public Ability Dexterity { get; private set; }
 
         public Character()
         {
             SetupVitals();
+            SetupAbilities();
             SetupStats();
             SetupCombat();
         }
@@ -30,9 +31,18 @@
             return hitIsSuccessful;
         }
 
-        private void SetupCombat()
+        private void SetupVitals()
         {
-            CriticalRoll = 20;
+            Name = "";
+
+            IsAlive = true;
+            HitPoints = 5;            
+        }
+
+        private void SetupAbilities()
+        {
+            Strength = new Ability();
+            Dexterity = new Ability();
         }
 
         private void SetupStats()
@@ -40,14 +50,9 @@
             ArmorClass = 10;
         }
 
-        private void SetupVitals()
+        private void SetupCombat()
         {
-            Name = "";
-
-            IsAlive = true;
-            HitPoints = 5;
-            Strength = new Ability();
-            Dexterity = new object();
+            CriticalRoll = 20;
         }
 
         private static bool AttackHits(int attackRoll, Character enemy)
