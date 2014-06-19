@@ -14,6 +14,10 @@ namespace EmptyProject.Tests
             // Assert            
             AssertAbility(player.Strength);
             AssertAbility(player.Dexterity);
+            AssertAbility(player.Constitution);
+            AssertAbility(player.Wisdom);
+            AssertAbility(player.Intelligence);
+            AssertAbility(player.Charisma);
         }
 
         private static void AssertAbility(object ability)

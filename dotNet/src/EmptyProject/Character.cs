@@ -12,6 +12,10 @@
 
         public Ability Strength { get; private set; }
         public Ability Dexterity { get; private set; }
+        public Ability Constitution { get; private set; }
+        public Ability Wisdom { get; private set; }
+        public Ability Intelligence { get; private set; }
+        public Ability Charisma { get; private set; }
 
         public Character()
         {
@@ -43,6 +47,10 @@
         {
             Strength = new Ability();
             Dexterity = new Ability();
+            Constitution = new Ability();
+            Wisdom = new Ability();
+            Intelligence = new Ability();
+            Charisma = new Ability();
         }
 
         private void SetupStats()
