@@ -15,6 +15,18 @@ namespace EmptyProject.Tests
 
             // Assert            
             Assert.IsNotNull(player.Strength);
-        }        
-    }
+        }
+
+        [TestMethod]
+        public void CharacterStrengthIsAnAbility()
+        {
+            // Arrange
+            var player = new Character();
+
+            // Act
+
+            // Assert            
+            Assert.IsInstanceOfType(player.Strength, typeof(Ability));
+        }   
+    }    
 }

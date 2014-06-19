@@ -10,7 +10,7 @@
 
         private int CriticalRoll { get; set; }
 
-        public object Strength { get; set; }
+        public Ability Strength { get; private set; }
 
         public Character()
         {
@@ -45,7 +45,7 @@
 
             IsAlive = true;
             HitPoints = 5;
-            Strength = new object();
+            Strength = new Ability();
         }
 
         private static bool AttackHits(int attackRoll, Character enemy)
@@ -69,5 +69,10 @@
 
             return damage;
         }
+    }
+
+    public class Ability
+    {
+
     }
 }
