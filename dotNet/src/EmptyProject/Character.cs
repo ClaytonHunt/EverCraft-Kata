@@ -13,11 +13,7 @@
         private int CriticalRoll { get; set; }
         private int CriticalHitMultiplier { get; set; }
 
-        private static readonly Abilities Abilities = new Abilities {
-            Strength = 10,
-            Dexterity = 10,
-            Constitution = 10
-        };
+        private static readonly Abilities Abilities = new Abilities();
 
         public Ability Strength { get; private set; }
         public Ability Dexterity { get; private set; }
@@ -124,11 +120,30 @@
         }
     }
 
-    public struct Abilities
+    public class Abilities
     {
-        public int Strength;
-        public int Dexterity;
-        public int Constitution;
+        private int _strength = 10;
+
+        public int Strength
+        {
+            get { return _strength; }
+            set { _strength = value; }
+        }
+
+        private int _dexterity = 10;
+
+        public int Dexterity
+        {
+            get { return _dexterity; }
+            set { _dexterity = value; }
+        }
+
+        private int _constitution = 10;
+        public int Constitution
+        {
+            get { return _constitution; }
+            set { _constitution = value; }
+        }
     }
 
     public class Ability
