@@ -92,6 +92,7 @@
         private const int UpperLimit = 20;
 
         public int Score { get; private set; }
+        public int Modifier { get; private set; }
 
         public Ability()
         {

@@ -60,6 +60,16 @@ namespace EmptyProject.Tests
             Assert.AreEqual(20, ability.Score);
         }
 
+        [TestMethod]
+        public void AbilityModifierIsZeroWhenScoreIsTen()
+        {
+            // Arrange
+            var ability = new Ability(10);
+
+            // Assert
+            Assert.AreEqual(0, ability.Modifier);
+        }
+
         private static void AssertAbility(object ability)
         {
             Assert.IsNotNull(ability);
