@@ -14,5 +14,25 @@ namespace EmptyProject.Tests
             // Assert
             Assert.AreEqual(0, player.Experience);
         }
+
+        [TestMethod]
+        public void CharacterDoesNotGainsExperienceOnFailedAttack()
+        {
+            // Arrange
+            var player = new Character();
+            var enemy = new Character();
+
+            // Act
+            player.Attack(9, enemy);
+
+            // Assert
+            Assert.AreEqual(0, player.Experience);
+        }
+
+        [TestMethod]
+        public void CharacterGainsExperienceOnSuccessfulAttack()
+        {
+            
+        }
     }
 }
