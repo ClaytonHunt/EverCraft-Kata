@@ -50,6 +50,16 @@ namespace EmptyProject.Tests
             Assert.AreEqual(1, ability.Score);
         }
 
+        [TestMethod]
+        public void AbilitiesHaveAMaximumValueOfTwenty()
+        {
+            // Arrange
+            var ability = new Ability(21);
+
+            // Assert
+            Assert.AreEqual(20, ability.Score);
+        }
+
         private static void AssertAbility(object ability)
         {
             Assert.IsNotNull(ability);
