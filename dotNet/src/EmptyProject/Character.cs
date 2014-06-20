@@ -92,7 +92,17 @@
         private const int UpperLimit = 20;
 
         public int Score { get; private set; }
-        public int Modifier { get; private set; }
+
+        public int Modifier
+        {
+            get
+            {
+                if (Score == 1)
+                    return -5;
+
+                return 0;
+            }
+        }
 
         public Ability()
         {
@@ -101,7 +111,7 @@
 
         public Ability(int score)
         {
-            SetScoreWithLimits(score);            
+            SetScoreWithLimits(score);
         }
 
         private void SetScoreWithLimits(int score)
