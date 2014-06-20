@@ -42,14 +42,6 @@
             return hitIsSuccessful;
         }
 
-        private void SetupVitals()
-        {
-            Name = "";
-
-            IsAlive = true;
-            HitPoints = 5 + Constitution.Modifier;            
-        }
-
         private void SetupAbilities(Abilities abilities)
         {
             Strength = new Ability(abilities.Strength);
@@ -58,6 +50,32 @@
             Wisdom = new Ability();
             Intelligence = new Ability();
             Charisma = new Ability();
+        }
+
+        private void SetupVitals()
+        {
+            Name = "";
+            IsAlive = true;
+            HitPoints = CalculateStartingHitPoints();            
+        }
+
+        private int CalculateStartingHitPoints()
+        {
+            return PreventBelowLimitHitPoints(
+                CalculateModifiedHitPoints()
+            );
+        }
+
+        private int CalculateModifiedHitPoints()
+        {
+            return 5 + Constitution.Modifier;
+        }
+
+        private static int PreventBelowLimitHitPoints(int hp)
+        {
+            if (hp < 1)
+                hp = 1;
+            return hp;
         }
 
         private void SetupStats()

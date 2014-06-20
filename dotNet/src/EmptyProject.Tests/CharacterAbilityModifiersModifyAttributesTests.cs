@@ -99,6 +99,16 @@ namespace EmptyProject.Tests
             Assert.AreEqual(6, _player.HitPoints);
         }
 
+        [TestMethod]
+        public void ConstitutionIsAddedToHitPointsButCantLowerHitPointsBelowOne()
+        {
+            // Arrange
+            _abilities = new Abilities { Constitution = 1 };
+            CreatePlayerAndEnemy();
+
+            Assert.AreEqual(1, _player.HitPoints);
+        }
+
         private void CreatePlayerAndEnemy()
         {
             _player = new Character(_abilities);
