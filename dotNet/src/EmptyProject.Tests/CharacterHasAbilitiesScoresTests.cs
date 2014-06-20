@@ -73,6 +73,16 @@ namespace EmptyProject.Tests
             CheckModifierForScore(8, -1);
             CheckModifierForScore(9, -1);
             CheckModifierForScore(10, 0);
+            CheckModifierForScore(11, 0);
+            CheckModifierForScore(12, 1);
+            CheckModifierForScore(13, 1);
+            CheckModifierForScore(14, 2);
+            CheckModifierForScore(15, 2);
+            CheckModifierForScore(16, 3);
+            CheckModifierForScore(17, 3);
+            CheckModifierForScore(18, 4);
+            CheckModifierForScore(19, 4);
+            CheckModifierForScore(20, 5);
         }
 
         private static void CheckModifierForScore(int score, int expected)
