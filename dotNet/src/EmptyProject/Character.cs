@@ -8,9 +8,15 @@
         public int HitPoints { get; private set; }
         public bool IsAlive { get; private set; }
 
+        private const int BaseArmorClass = 10;
+
         private int CriticalRoll { get; set; }
         private int CriticalHitMultiplier { get; set; }
-        private static readonly Abilities Abilities = new Abilities { Strength = 10 };
+
+        private static readonly Abilities Abilities = new Abilities {
+            Strength = 10,
+            Dexterity = 10
+        };
 
         public Ability Strength { get; private set; }
         public Ability Dexterity { get; private set; }
@@ -50,7 +56,7 @@
         private void SetupAbilities(Abilities abilities)
         {
             Strength = new Ability(abilities.Strength);
-            Dexterity = new Ability();
+            Dexterity = new Ability(abilities.Dexterity);
             Constitution = new Ability();
             Wisdom = new Ability();
             Intelligence = new Ability();
@@ -59,7 +65,7 @@
 
         private void SetupStats()
         {
-            ArmorClass = 10;
+            ArmorClass = BaseArmorClass + Dexterity.Modifier;
         }
 
         private void SetupCombat()
@@ -120,6 +126,7 @@
     public struct Abilities
     {
         public int Strength;
+        public int Dexterity;
     }
 
     public class Ability

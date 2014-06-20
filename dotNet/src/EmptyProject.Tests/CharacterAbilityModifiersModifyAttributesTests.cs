@@ -79,6 +79,16 @@ namespace EmptyProject.Tests
             Assert.AreEqual(4, _enemy.HitPoints);
         }
 
+        [TestMethod]
+        public void DexterityIsAddedToArmorClass()
+        {
+            // Arrange
+            _abilities = new Abilities { Dexterity = 12 };
+            CreatePlayerAndEnemy();
+
+            Assert.AreEqual(11, _player.ArmorClass);
+        }
+
         private void CreatePlayerAndEnemy()
         {
             _player = new Character(_abilities);
