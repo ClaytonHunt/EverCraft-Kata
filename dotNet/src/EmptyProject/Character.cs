@@ -90,6 +90,7 @@
     {
         private const int LowerLimit = 1;
         private const int UpperLimit = 20;
+        private const int ModifierRange = 2;
 
         public int Score { get; private set; }
 
@@ -97,13 +98,7 @@
         {
             get
             {
-                if (Score == 1)
-                    return -5;
-
-                if (Score == 2 || Score == 3)
-                    return -4;
-
-                return 0;
+                return (Score / ModifierRange) - (UpperLimit / (ModifierRange * 2));
             }
         }
 
