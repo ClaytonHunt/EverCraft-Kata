@@ -59,6 +59,7 @@
     <Compile Include="CharacterHasAbilitiesScoresTests.cs" />
     <Compile Include="CharacterAbilityModifiersModifyAttributesTests.cs" />
     <Compile Include="CharacterExperienceTests.cs" />
+    <Compile Include="CharacterLevelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmptyProject\EmptyProject.csproj">
