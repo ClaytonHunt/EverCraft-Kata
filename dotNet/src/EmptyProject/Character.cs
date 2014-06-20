@@ -36,11 +36,18 @@
         public bool Attack(int attackRoll, Character enemy)
         {
             var hitIsSuccessful = AttackHits(attackRoll, enemy);
+            DamageEnemy(attackRoll, enemy, hitIsSuccessful);
 
             if (hitIsSuccessful)
-                enemy.TakeDamage(DamageToDeal(attackRoll));
+                Experience += 10;
 
             return hitIsSuccessful;
+        }
+
+        private void DamageEnemy(int attackRoll, Character enemy, bool hitIsSuccessful)
+        {
+            if (hitIsSuccessful)
+                enemy.TakeDamage(DamageToDeal(attackRoll));
         }
 
         private void SetupAbilities(Abilities abilities)

@@ -32,7 +32,30 @@ namespace EmptyProject.Tests
         [TestMethod]
         public void CharacterGainsExperienceOnSuccessfulAttack()
         {
-            
+            // Arrange
+            var player = new Character();
+            var enemy = new Character();
+
+            // Act
+            player.Attack(10, enemy);
+
+            // Assert
+            Assert.AreEqual(10, player.Experience);
+        }
+
+        [TestMethod]
+        public void CharacterGainsExperienceEverySuccessfulAttack()
+        {
+            // Arrange
+            var player = new Character();
+            var enemy = new Character();
+
+            // Act
+            player.Attack(10, enemy);
+            player.Attack(10, enemy);
+
+            // Assert
+            Assert.AreEqual(20, player.Experience);
         }
     }
 }
