@@ -6,6 +6,7 @@
         public Alignment Alignment { get; set; }
         public int ArmorClass { get; private set; }
         public int HitPoints { get; private set; }
+        public int Experience { get; private set; }
         public bool IsAlive { get; private set; }
 
         private const int BaseArmorClass = 10;
