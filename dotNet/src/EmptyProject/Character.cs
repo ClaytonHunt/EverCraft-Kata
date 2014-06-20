@@ -37,11 +37,15 @@
         {
             var hitIsSuccessful = AttackHits(attackRoll, enemy);
             DamageEnemy(attackRoll, enemy, hitIsSuccessful);
-
-            if (hitIsSuccessful)
-                Experience += 10;
+            DetermineExperience(enemy);
 
             return hitIsSuccessful;
+        }
+
+        private void DetermineExperience(Character enemy)
+        {
+            if (!enemy.IsAlive)
+                Experience += 50;
         }
 
         private void DamageEnemy(int attackRoll, Character enemy, bool hitIsSuccessful)

@@ -16,7 +16,7 @@ namespace EmptyProject.Tests
         }
 
         [TestMethod]
-        public void CharacterDoesNotGainsExperienceOnFailedAttack()
+        public void CharacterDoesNotGainsExperienceIfEnemyIsStillAlive()
         {
             // Arrange
             var player = new Character();
@@ -30,7 +30,7 @@ namespace EmptyProject.Tests
         }
 
         [TestMethod]
-        public void CharacterGainsExperienceOnSuccessfulAttack()
+        public void CharacterGainsExperienceOnEnemyDeath()
         {
             // Arrange
             var player = new Character();
@@ -38,24 +38,29 @@ namespace EmptyProject.Tests
 
             // Act
             player.Attack(10, enemy);
+            player.Attack(10, enemy);
+            player.Attack(10, enemy);
+            player.Attack(10, enemy);
+            player.Attack(10, enemy);
 
             // Assert
-            Assert.AreEqual(10, player.Experience);
+            Assert.AreEqual(50, player.Experience);
         }
 
         [TestMethod]
-        public void CharacterGainsExperienceEverySuccessfulAttack()
+        public void CharacterGainsSameExperienceOnEnemyDeathWithCriticalHits()
         {
             // Arrange
             var player = new Character();
             var enemy = new Character();
 
             // Act
-            player.Attack(10, enemy);
-            player.Attack(10, enemy);
+            player.Attack(20, enemy);
+            player.Attack(20, enemy);
+            player.Attack(20, enemy);
 
             // Assert
-            Assert.AreEqual(20, player.Experience);
+            Assert.AreEqual(50, player.Experience);
         }
     }
 }
