@@ -65,6 +65,7 @@ namespace EmptyProject.Tests
         {
             CheckModifierForScore(1, -5);
             CheckModifierForScore(2, -4);
+            CheckModifierForScore(3, -4);
             CheckModifierForScore(10, 0);
         }
 

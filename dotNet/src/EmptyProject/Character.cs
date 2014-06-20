@@ -100,7 +100,7 @@
                 if (Score == 1)
                     return -5;
 
-                if (Score == 2)
+                if (Score == 2 || Score == 3)
                     return -4;
 
                 return 0;
