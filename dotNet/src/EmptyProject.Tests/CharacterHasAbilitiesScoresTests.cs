@@ -61,23 +61,19 @@ namespace EmptyProject.Tests
         }
 
         [TestMethod]
-        public void AbilityModifierIsZeroWhenScoreIsTen()
+        public void AbilityModifierIsRelativeToScore()
         {
-            // Arrange
-            var ability = new Ability(10);
-
-            // Assert
-            Assert.AreEqual(0, ability.Modifier);
+            CheckModifierForScore(1, -5);
+            CheckModifierForScore(10, 0);
         }
 
-        [TestMethod]
-        public void AbilityModifierIsNegativeFiveWhenScoreIsOne()
+        private static void CheckModifierForScore(int score, int expected)
         {
-            // Arrange
-            var ability = new Ability(1);
+            // Act
+            var ability = new Ability(score);
 
             // Assert
-            Assert.AreEqual(-5, ability.Modifier);
+            Assert.AreEqual(expected, ability.Modifier);
         }
 
         private static void AssertAbility(object ability)
