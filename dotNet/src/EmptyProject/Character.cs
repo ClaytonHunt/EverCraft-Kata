@@ -100,6 +100,9 @@
                 if (Score == 1)
                     return -5;
 
+                if (Score == 2)
+                    return -4;
+
                 return 0;
             }
         }

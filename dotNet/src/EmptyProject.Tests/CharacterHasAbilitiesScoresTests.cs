@@ -64,6 +64,7 @@ namespace EmptyProject.Tests
         public void AbilityModifierIsRelativeToScore()
         {
             CheckModifierForScore(1, -5);
+            CheckModifierForScore(2, -4);
             CheckModifierForScore(10, 0);
         }
 
