@@ -5,22 +5,28 @@ namespace EmptyProject.Tests
     [TestClass]
     public class CharacterAbilityModifiersModifyAttributesTests
     {
+        private Abilities _abilities;
+        private Character _player;
+        private Character _enemy;
+
         [TestMethod]
         public void StrengthModifierIsAddedToAttackRoll()
         {
             // Arrange
-            var abilities = new Abilities {
-                Strength = 12
-            };
-
-            var player = new Character(abilities); 
-            var enemy = new Character();
+            _abilities = new Abilities { Strength = 12 };
+            CreatePlayerAndEnemy();
 
             // Act
-            var isHit = player.Attack(9, enemy);
+            var isHit = _player.Attack(9, _enemy);
 
             // Assert
             Assert.IsTrue(isHit);
+        }
+
+        private void CreatePlayerAndEnemy()
+        {
+            _player = new Character(_abilities);
+            _enemy = new Character();
         }
     }
 }
