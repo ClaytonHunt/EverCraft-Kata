@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EmptyProject.Tests
 {
@@ -10,7 +9,11 @@ namespace EmptyProject.Tests
         public void StrengthModifierIsAddedToAttackRoll()
         {
             // Arrange
-            var player = new Character(strength:12); 
+            var abilities = new Abilities {
+                Strength = 12
+            };
+
+            var player = new Character(abilities); 
             var enemy = new Character();
 
             // Act

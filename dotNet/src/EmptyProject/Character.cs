@@ -1,4 +1,6 @@
-﻿namespace EmptyProject
+﻿using System;
+
+namespace EmptyProject
 {
     public class Character
     {
@@ -9,6 +11,7 @@
         public bool IsAlive { get; private set; }
 
         private int CriticalRoll { get; set; }
+        private static readonly Abilities Abilities = new Abilities { Strength = 10 };
 
         public Ability Strength { get; private set; }
         public Ability Dexterity { get; private set; }
@@ -17,10 +20,12 @@
         public Ability Intelligence { get; private set; }
         public Ability Charisma { get; private set; }
 
-        public Character(int strength = 10)
+        public Character() : this(Abilities) { }
+
+        public Character(Abilities abilities)
         {
             SetupVitals();
-            SetupAbilities(strength);
+            SetupAbilities(abilities);
             SetupStats();
             SetupCombat();
         }
@@ -43,9 +48,9 @@
             HitPoints = 5;            
         }
 
-        private void SetupAbilities(int strength)
+        private void SetupAbilities(Abilities abilities)
         {
-            Strength = new Ability(strength);
+            Strength = new Ability(abilities.Strength);
             Dexterity = new Ability();
             Constitution = new Ability();
             Wisdom = new Ability();
@@ -89,6 +94,11 @@
 
             return damage;
         }
+    }
+
+    public struct Abilities
+    {
+        public int Strength;
     }
 
     public class Ability
