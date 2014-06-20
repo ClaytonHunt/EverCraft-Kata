@@ -11,6 +11,7 @@ namespace EmptyProject
         public bool IsAlive { get; private set; }
 
         private int CriticalRoll { get; set; }
+        private int CriticalHitMultiplier { get; set; }
         private static readonly Abilities Abilities = new Abilities { Strength = 10 };
 
         public Ability Strength { get; private set; }
@@ -66,6 +67,7 @@ namespace EmptyProject
         private void SetupCombat()
         {
             CriticalRoll = 20;
+            CriticalHitMultiplier = 2;
         }
 
         private bool AttackHits(int attackRoll, Character enemy)
@@ -88,11 +90,16 @@ namespace EmptyProject
 
         private int DamageToDeal(int attackRoll)
         {
-            var damage = 1;
+            var damage = CalculateDamage();
             if (attackRoll == CriticalRoll)
-                damage *= 2;
+                damage *= CriticalHitMultiplier;
 
             return damage;
+        }
+
+        private int CalculateDamage()
+        {
+            return 1 + Strength.Modifier;
         }
     }
 
