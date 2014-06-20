@@ -89,6 +89,16 @@ namespace EmptyProject.Tests
             Assert.AreEqual(11, _player.ArmorClass);
         }
 
+        [TestMethod]
+        public void ConstitutionIsAddedToHitPoints()
+        {
+            // Arrange
+            _abilities = new Abilities { Constitution = 12 };
+            CreatePlayerAndEnemy();
+
+            Assert.AreEqual(6, _player.HitPoints);
+        }
+
         private void CreatePlayerAndEnemy()
         {
             _player = new Character(_abilities);

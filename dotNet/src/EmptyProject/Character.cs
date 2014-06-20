@@ -15,7 +15,8 @@
 
         private static readonly Abilities Abilities = new Abilities {
             Strength = 10,
-            Dexterity = 10
+            Dexterity = 10,
+            Constitution = 10
         };
 
         public Ability Strength { get; private set; }
@@ -29,8 +30,8 @@
 
         public Character(Abilities abilities)
         {
-            SetupVitals();
             SetupAbilities(abilities);
+            SetupVitals();
             SetupStats();
             SetupCombat();
         }
@@ -50,14 +51,14 @@
             Name = "";
 
             IsAlive = true;
-            HitPoints = 5;            
+            HitPoints = 5 + Constitution.Modifier;            
         }
 
         private void SetupAbilities(Abilities abilities)
         {
             Strength = new Ability(abilities.Strength);
             Dexterity = new Ability(abilities.Dexterity);
-            Constitution = new Ability();
+            Constitution = new Ability(abilities.Constitution);
             Wisdom = new Ability();
             Intelligence = new Ability();
             Charisma = new Ability();
@@ -127,6 +128,7 @@
     {
         public int Strength;
         public int Dexterity;
+        public int Constitution;
     }
 
     public class Ability
