@@ -17,10 +17,10 @@
         public Ability Intelligence { get; private set; }
         public Ability Charisma { get; private set; }
 
-        public Character()
+        public Character(int strength = 10)
         {
             SetupVitals();
-            SetupAbilities();
+            SetupAbilities(strength);
             SetupStats();
             SetupCombat();
         }
@@ -43,9 +43,9 @@
             HitPoints = 5;            
         }
 
-        private void SetupAbilities()
+        private void SetupAbilities(int strength)
         {
-            Strength = new Ability();
+            Strength = new Ability(strength);
             Dexterity = new Ability();
             Constitution = new Ability();
             Wisdom = new Ability();
@@ -63,9 +63,14 @@
             CriticalRoll = 20;
         }
 
-        private static bool AttackHits(int attackRoll, Character enemy)
+        private bool AttackHits(int attackRoll, Character enemy)
         {
-            return attackRoll >= enemy.ArmorClass;            
+            return AttackTotal(attackRoll) >= enemy.ArmorClass;            
+        }
+
+        private int AttackTotal(int attackRoll)
+        {
+            return attackRoll + Strength.Modifier;
         }
 
         private void TakeDamage(int amount)
