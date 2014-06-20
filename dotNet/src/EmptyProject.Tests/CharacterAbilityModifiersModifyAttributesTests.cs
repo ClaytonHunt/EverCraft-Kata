@@ -51,6 +51,34 @@ namespace EmptyProject.Tests
             Assert.AreEqual(1, _enemy.HitPoints);
         }
 
+        [TestMethod]
+        public void MinimumDamageIsOne()
+        {
+            // Arrange
+            _abilities = new Abilities { Strength = 8 };
+            CreatePlayerAndEnemy();
+
+            // Act
+            _player.Attack(19, _enemy);
+
+            // Assert
+            Assert.AreEqual(4, _enemy.HitPoints);
+        }
+
+        [TestMethod]
+        public void MinimumDamageOnCriticalHitIsOne()
+        {
+            // Arrange
+            _abilities = new Abilities { Strength = 8 };
+            CreatePlayerAndEnemy();
+
+            // Act
+            _player.Attack(20, _enemy);
+
+            // Assert
+            Assert.AreEqual(4, _enemy.HitPoints);
+        }
+
         private void CreatePlayerAndEnemy()
         {
             _player = new Character(_abilities);

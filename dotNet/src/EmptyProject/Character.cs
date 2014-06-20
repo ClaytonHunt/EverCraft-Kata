@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EmptyProject
+﻿namespace EmptyProject
 {
     public class Character
     {
@@ -90,16 +88,32 @@ namespace EmptyProject
 
         private int DamageToDeal(int attackRoll)
         {
-            var damage = CalculateDamage();
+            return PreventNegativeDamage(
+                AddCriticalDamage(
+                    attackRoll, 
+                    CalculateNormalDamage()
+                )
+            );
+        }
+
+        private int AddCriticalDamage(int attackRoll, int damage)
+        {
             if (attackRoll == CriticalRoll)
                 damage *= CriticalHitMultiplier;
+            return damage;
+        }
+
+        private int PreventNegativeDamage(int damage)
+        {
+            if (damage < 1)
+                damage = 1;
 
             return damage;
         }
 
-        private int CalculateDamage()
+        private int CalculateNormalDamage()
         {
-            return 1 + Strength.Modifier;
+            return 1 + Strength.Modifier;            
         }
     }
 
