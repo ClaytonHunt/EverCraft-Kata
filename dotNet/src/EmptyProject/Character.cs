@@ -2,19 +2,17 @@
 {
     public class Character
     {
-        public string Name { get; set; }
-        public Alignment Alignment { get; set; }
-        public int ArmorClass { get; private set; }
-        public int HitPoints { get; private set; }
-        public int Experience { get; private set; }
-        public bool IsAlive { get; private set; }
-
         private const int BaseArmorClass = 10;
-
         private int CriticalRoll { get; set; }
         private int CriticalHitMultiplier { get; set; }
-
         private static readonly Abilities Abilities = new Abilities();
+
+        public string Name { get; set; }
+        public Alignment Alignment { get; set; }
+        public bool IsAlive { get; private set; }
+        public int HitPoints { get; private set; }
+        public int Experience { get; private set; }
+        public int ArmorClass { get; private set; }
 
         public Ability Strength { get; private set; }
         public Ability Dexterity { get; private set; }
@@ -22,6 +20,11 @@
         public Ability Wisdom { get; private set; }
         public Ability Intelligence { get; private set; }
         public Ability Charisma { get; private set; }
+
+        public int Level
+        {
+            get { return (Experience / 1000) + 1; }
+        }
 
         public Character() : this(Abilities) { }
 
