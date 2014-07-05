@@ -2,24 +2,35 @@ namespace EmptyProject
 {
     public class CharacterLeveler
     {
+        private Character _character;
         private const int ExperiencePerLevel = 1000;
 
         public void AddLevel(Character character)
         {
-            if (CanLevel(character))
-                LevelUp(character);
+            _character = character;
+
+            if (CanLevel()) LevelUp();
         }
 
-        private bool CanLevel(Character character)
-        {
-            var levelAcheivable = character.Experience/ExperiencePerLevel + 1;
-            return character.Level < levelAcheivable;
+        private bool CanLevel()
+        {            
+            return _character.Level < LevelCharacterCanAcheive();
         }
 
-        private static void LevelUp(Character character)
+        private int LevelCharacterCanAcheive()
         {
-            character.Level += 1;
-            character.HitPoints += 5;
+            return _character.Experience/ExperiencePerLevel + 1;
+        }
+
+        private void LevelUp()
+        {
+            _character.Level += 1;
+            _character.HitPoints += CalculateModifiedHitPoints();
+        }
+
+        private int CalculateModifiedHitPoints()
+        {
+            return 5 + _character.Constitution.Modifier;
         }
     }
 }

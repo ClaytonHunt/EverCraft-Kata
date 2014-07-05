@@ -40,15 +40,8 @@
         {
             var hitIsSuccessful = AttackHits(attackRoll, enemy);
             DamageEnemy(attackRoll, enemy, hitIsSuccessful);
-            DetermineExperience(enemy);
 
             return hitIsSuccessful;
-        }
-
-        private void DetermineExperience(Character enemy)
-        {
-            if (!enemy.IsAlive)
-                Experience += 50;
         }
 
         private void DamageEnemy(int attackRoll, Character enemy, bool hitIsSuccessful)
@@ -156,75 +149,6 @@
         public void AddExperience(int experience)
         {
             Experience += experience;
-        }
-    }
-
-    public class Abilities
-    {
-        private int _strength = 10;
-
-        public int Strength
-        {
-            get { return _strength; }
-            set { _strength = value; }
-        }
-
-        private int _dexterity = 10;
-
-        public int Dexterity
-        {
-            get { return _dexterity; }
-            set { _dexterity = value; }
-        }
-
-        private int _constitution = 10;
-        public int Constitution
-        {
-            get { return _constitution; }
-            set { _constitution = value; }
-        }
-    }
-
-    public class Ability
-    {
-        private const int LowerLimit = 1;
-        private const int UpperLimit = 20;
-        private const int ModifierRange = 2;
-
-        public int Score { get; private set; }
-
-        public int Modifier
-        {
-            get
-            {
-                return (Score / ModifierRange) - (UpperLimit / (ModifierRange * 2));
-            }
-        }
-
-        public Ability()
-        {
-            Score = 10;
-        }
-
-        public Ability(int score)
-        {
-            SetScoreWithLimits(score);
-        }
-
-        private void SetScoreWithLimits(int score)
-        {
-            score = ScoreOrLowerLimit(score);
-            Score = ScoreOrUpperLimit(score);
-        }
-
-        private static int ScoreOrUpperLimit(int score)
-        {
-            return score > UpperLimit ? UpperLimit : score;
-        }
-
-        private static int ScoreOrLowerLimit(int score)
-        {
-            return score < LowerLimit ? LowerLimit : score;
         }
     }
 }
