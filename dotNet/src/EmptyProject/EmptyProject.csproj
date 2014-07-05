@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abilities.cs" />
+    <Compile Include="Ability.cs" />
     <Compile Include="Alignment.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterLeveler.cs" />

@@ -52,8 +52,10 @@
   <ItemGroup>
     <Compile Include="AlignmentTests.cs" />
     <Compile Include="ArmorClassAndHitPointsTests.cs" />
+    <Compile Include="CharacterAttackPerLevelTests.cs" />
     <Compile Include="CharacterCanAttackTests.cs" />
     <Compile Include="CharacterCanBeDamagedTests.cs" />
+    <Compile Include="CharacterHitPointsPerLevelTests.cs" />
     <Compile Include="CharacterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CharacterHasAbilitiesScoresTests.cs" />

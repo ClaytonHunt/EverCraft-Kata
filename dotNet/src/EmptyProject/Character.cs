@@ -21,7 +21,8 @@
         public Ability Constitution { get; private set; }
         public Ability Wisdom { get; private set; }
         public Ability Intelligence { get; private set; }
-        public Ability Charisma { get; private set; }        
+        public Ability Charisma { get; private set; }
+        internal int AttackRollModifier { get; set; }
 
         public Character() : this(Abilities)
         {
@@ -105,7 +106,7 @@
 
         private int AttackTotal(int attackRoll)
         {
-            return attackRoll + Strength.Modifier;
+            return attackRoll + AttackRollModifier + Strength.Modifier;
         }
 
         private void TakeDamage(int amount)

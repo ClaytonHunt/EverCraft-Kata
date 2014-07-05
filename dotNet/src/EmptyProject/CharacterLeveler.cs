@@ -26,6 +26,13 @@ namespace EmptyProject
         {
             _character.Level += 1;
             _character.HitPoints += CalculateModifiedHitPoints();
+            if(LevelIsEven())
+            _character.AttackRollModifier += 1;
+        }
+
+        private bool LevelIsEven()
+        {
+            return _character.Level%2 == 0;
         }
 
         private int CalculateModifiedHitPoints()
