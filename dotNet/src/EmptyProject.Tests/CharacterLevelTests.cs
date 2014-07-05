@@ -28,6 +28,20 @@ namespace EmptyProject.Tests
             Assert.AreEqual(2, player.Level);
         }
 
+        [TestMethod]
+        public void CharacterGainsLevelThreeAtTwoThousandExperiencePoints()
+        {
+            // Arrange
+            var player = new Character();
+
+            // Act
+            VanquishTwentyFoes(player);
+            VanquishTwentyFoes(player);
+
+            // Assert
+            Assert.AreEqual(3, player.Level);
+        }
+
         private void VanquishTwentyFoes(Character player)
         {
             for (var i = 0; i < 20; i++)
