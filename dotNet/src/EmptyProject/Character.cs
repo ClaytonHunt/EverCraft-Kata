@@ -3,6 +3,7 @@
     public class Character
     {
         private const int BaseArmorClass = 10;
+
         private int CriticalRoll { get; set; }
         private int CriticalHitMultiplier { get; set; }
         private static readonly Abilities Abilities = new Abilities();
@@ -10,7 +11,8 @@
         public string Name { get; set; }
         public Alignment Alignment { get; set; }
         public bool IsAlive { get; private set; }
-        public int HitPoints { get; private set; }
+        public int Level { get; internal set; }
+        public int HitPoints { get; internal set; }
         public int Experience { get; private set; }
         public int ArmorClass { get; private set; }
 
@@ -19,14 +21,12 @@
         public Ability Constitution { get; private set; }
         public Ability Wisdom { get; private set; }
         public Ability Intelligence { get; private set; }
-        public Ability Charisma { get; private set; }
+        public Ability Charisma { get; private set; }        
 
-        public int Level
+        public Character() : this(Abilities)
         {
-            get { return (Experience / 1000) + 1; }
+            
         }
-
-        public Character() : this(Abilities) { }
 
         public Character(Abilities abilities)
         {
@@ -71,7 +71,8 @@
         {
             Name = "";
             IsAlive = true;
-            HitPoints = CalculateStartingHitPoints();            
+            Level = 1;
+            HitPoints = CalculateStartingHitPoints();
         }
 
         private int CalculateStartingHitPoints()
@@ -150,6 +151,11 @@
         private int CalculateNormalDamage()
         {
             return 1 + Strength.Modifier;            
+        }
+
+        public void AddExperience(int experience)
+        {
+            Experience += experience;
         }
     }
 

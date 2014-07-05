@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Alignment.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="CharacterLeveler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
