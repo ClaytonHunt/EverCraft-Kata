@@ -42,6 +42,19 @@ namespace EmptyProject.Tests
             Assert.AreEqual(3, player.Level);
         }
 
+        [TestMethod]
+        public void CharacterHitPointsIncreaseByFiveEachLevel()
+        {
+            // Arrange
+            var player = new Character();
+
+            // Act
+            VanquishTwentyFoes(player);
+
+            // Assert
+            Assert.AreEqual(10, player.HitPoints);
+        }
+
         private void VanquishTwentyFoes(Character player)
         {
             for (var i = 0; i < 20; i++)
